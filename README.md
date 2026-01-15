@@ -9,6 +9,7 @@ To use:
 5. Go to Credentials and click credentials. Choose OAuth Client ID. Choose Desktop app and create.
 6. Click download json and save the file as credentials.json.
 7. Create a .env file, and paste an API key.
-8. To run: just run python/python3 agent.py in the command line. You may be asked to login if you are running the program for the first time.
+8. Do pip install -r requirements.txt (you may want do make a venv for this)
+9. To run: just run python/python3 agent.py in the command line. You may be asked to login if you are running the program for the first time.
 
 Note: the program does require you having credits in OpenAI
