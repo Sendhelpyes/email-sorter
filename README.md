@@ -1,5 +1,5 @@
 # email-sorter
-Its not quite done
+This may fail, I hope it doesn't. Also this requires an API key from OpenAI
 
 To use:
 1. Go to google cloud console and create a project.
@@ -12,4 +12,4 @@ To use:
 8. Do pip install -r requirements.txt (you may want do make a venv for this)
 9. To run: just run python/python3 agent.py in the command line. You may be asked to login if you are running the program for the first time.
 
-Note: the program does require you having credits in OpenAI
+This program will attempt to sort emails into 3 categories: Important, Spam and misc. (It will create a misc label if it doesn't exist). It will move the message from inbox to the appropriate label.
