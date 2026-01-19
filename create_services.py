@@ -18,13 +18,17 @@ def get_scopes():
 def get_creds():
     creds = None
     scopes = get_scopes()
+    token_exists = False
     if os.path.exists("token.json"): #logged in before, use toke
         creds = Credentials.from_authorized_user_file("token.json",scopes)
+        token_exists = True
 
     if not creds or not creds.valid: #either no token or token is invalid
         if creds and creds.expired and creds.refresh_token: #token needs to be refreshed
             creds.refresh(Request())
         else: #token invalid or doesn't exist
+            if token_exists:
+                os.remove("token.json")
             flow = InstalledAppFlow.from_client_secrets_file("credentials.json",scopes) #instantiate an object to help log in with credentials file
             creds = flow.run_local_server(port=0) #Connect to google to login, get tokens if login is sucessful
         with open("token.json","w") as token: #new tokens, make new token file
